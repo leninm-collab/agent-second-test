@@ -1,0 +1,78 @@
+{
+  "name": "Transporter",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Transporter/carrier company name"
+    },
+    "code": {
+      "type": "string",
+      "description": "Unique transporter code"
+    },
+    "contact_person": {
+      "type": "string",
+      "description": "Primary contact"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact email"
+    },
+    "fleet_size": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of vehicles in fleet"
+    },
+    "service_types": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Supported service types (PTL, FTL)"
+    },
+    "coverage_regions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Regions covered"
+    },
+    "on_time_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "On-time delivery percentage"
+    },
+    "damage_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Damage incident percentage"
+    },
+    "avg_cost_per_km": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Average cost per kilometer"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Overall performance rating (0-5)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "suspended", "inactive"],
+      "default": "active",
+      "description": "Transporter status"
+    },
+    "total_shipments": {
+      "type": "integer",
+      "default": 0,
+      "description": "Total shipments handled"
+    }
+  },
+  "required": ["name", "code"]
+}
