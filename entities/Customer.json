@@ -1,0 +1,65 @@
+{
+  "name": "Customer",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Customer or company name"
+    },
+    "contact_person": {
+      "type": "string",
+      "description": "Primary contact person"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone"
+    },
+    "location": {
+      "type": "string",
+      "description": "Customer location/city"
+    },
+    "segment": {
+      "type": "string",
+      "enum": ["enterprise", "mid_market", "small_business", "startup"],
+      "description": "Customer segment"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive", "prospect", "churned"],
+      "default": "active",
+      "description": "CRM status"
+    },
+    "total_shipments": {
+      "type": "integer",
+      "default": 0,
+      "description": "Lifetime shipment count"
+    },
+    "total_revenue": {
+      "type": "number",
+      "default": 0,
+      "description": "Lifetime revenue from customer"
+    },
+    "satisfaction_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Customer satisfaction rating (0-10)"
+    },
+    "last_shipment_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of most recent shipment"
+    },
+    "notes": {
+      "type": "string",
+      "description": "CRM notes"
+    }
+  },
+  "required": ["name", "segment", "status"]
+}
