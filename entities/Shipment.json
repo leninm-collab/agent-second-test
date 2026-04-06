@@ -1,0 +1,90 @@
+{
+  "name": "Shipment",
+  "type": "object",
+  "properties": {
+    "shipment_number": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique shipment tracking number"
+    },
+    "shipment_type": {
+      "type": "string",
+      "enum": ["PTL", "FTL"],
+      "description": "Part Truck Load or Full Truck Load"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["scheduled", "in_transit", "delivered", "delayed", "cancelled"],
+      "default": "scheduled",
+      "description": "Current shipment status"
+    },
+    "plant": {
+      "type": "string",
+      "description": "Origin plant name"
+    },
+    "division": {
+      "type": "string",
+      "description": "Business division"
+    },
+    "transporter": {
+      "type": "string",
+      "description": "Transporter/carrier company name"
+    },
+    "customer_name": {
+      "type": "string",
+      "description": "Destination customer name"
+    },
+    "origin": {
+      "type": "string",
+      "description": "Pickup location"
+    },
+    "destination": {
+      "type": "string",
+      "description": "Delivery location"
+    },
+    "weight_kg": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Shipment weight in kilograms"
+    },
+    "distance_km": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Route distance in kilometers"
+    },
+    "cost": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Shipping cost"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD",
+      "description": "Currency code"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Scheduled dispatch date"
+    },
+    "delivered_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Actual delivery date"
+    },
+    "on_time": {
+      "type": "boolean",
+      "description": "Whether delivery was on time"
+    },
+    "transit_days": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of days in transit"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": ["shipment_number", "shipment_type", "plant", "transporter", "scheduled_date"]
+}
