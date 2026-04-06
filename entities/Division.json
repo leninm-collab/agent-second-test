@@ -1,0 +1,45 @@
+{
+  "name": "Division",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Division name"
+    },
+    "code": {
+      "type": "string",
+      "description": "Division code"
+    },
+    "head": {
+      "type": "string",
+      "description": "Division head / VP name"
+    },
+    "region": {
+      "type": "string",
+      "description": "Geographic region"
+    },
+    "plant_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of plants in division"
+    },
+    "monthly_target_shipments": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monthly shipment target"
+    },
+    "monthly_target_revenue": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Monthly revenue target"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive"],
+      "default": "active",
+      "description": "Division status"
+    }
+  },
+  "required": ["name", "code", "region"]
+}
