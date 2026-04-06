@@ -1,0 +1,56 @@
+{
+  "name": "Plant",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Plant name"
+    },
+    "code": {
+      "type": "string",
+      "description": "Plant code identifier"
+    },
+    "location": {
+      "type": "string",
+      "description": "City or region"
+    },
+    "division": {
+      "type": "string",
+      "description": "Division this plant belongs to"
+    },
+    "capacity_tons_per_day": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Daily dispatch capacity in tons"
+    },
+    "avg_daily_shipments": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Average shipments dispatched per day"
+    },
+    "on_time_dispatch_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "On-time dispatch percentage"
+    },
+    "utilization_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Capacity utilization percentage"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["operational", "maintenance", "closed"],
+      "default": "operational",
+      "description": "Plant status"
+    },
+    "manager_name": {
+      "type": "string",
+      "description": "Plant manager"
+    }
+  },
+  "required": ["name", "code", "location", "division"]
+}
